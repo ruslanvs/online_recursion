@@ -1,3 +1,43 @@
+// TARAI
+function tarai( x, y, z ){
+    let counter = 0
+    let yVal
+
+    function taraiRecursion( x, y, z){
+        counter++
+        if( x <= y ){
+            yVal = y
+            return y
+        }
+        return taraiRecursion( taraiRecursion( x-1, y, z ), taraiRecursion( y - 1, z, x ), taraiRecursion( z-1, x, y ) )
+    }
+    taraiRecursion( x, y, z )
+    console.log( "tarai returned", yVal, "after", counter, "iterations" )
+}
+tarai( 10, 2, 9 )
+
+
+// RECURSIVE GREATEST COMMON FACTOR
+function greatestCommonFactor( a, b ){
+
+    function recursiveGCF( aVal, bVal ){
+        if( aVal == bVal ){
+            console.log( "The greatest common factor for", a, " and", b, " is:", aVal )
+            return aVal
+        }
+        if( aVal > bVal ){
+            return recursiveGCF( aVal - bVal, bVal )
+        }
+        if( aVal < bVal ){
+            return recursiveGCF( aVal, bVal - aVal )
+        }
+    
+    }
+    recursiveGCF( a, b )
+}
+// greatestCommonFactor( 14, 49 )
+
+
 // RECURSIVE BINARY SEARCH
 
 // let sortedList = [1,2,3]
@@ -39,7 +79,7 @@ function recursiveBinarySearch( sortedList, searchValue ) {
 
 }
 
-recursiveBinarySearch( sortedList, searchValue )
+// recursiveBinarySearch( sortedList, searchValue )
 
 function tribonacci( num ){
     // console.log( "call with num =", num )
